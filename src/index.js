@@ -6,6 +6,8 @@ import { onPatch } from 'mobx-state-tree';
 import makeInspectable from 'mobx-devtools-mst';
 
 import store from './store';
+import './locales/i18n';
+
 import App from './App';
 
 onPatch(store, (patch) => {
