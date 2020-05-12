@@ -7,9 +7,12 @@ import makeInspectable from 'mobx-devtools-mst';
 
 import { ApolloProvider } from '@apollo/react-hooks';
 
+import { ThemeProvider } from 'styled-components';
+
 import store from './store';
 import apolloClient from './ApolloClient';
 import './locales/i18n';
+import theme from './theme';
 
 import App from './App';
 
@@ -23,7 +26,9 @@ ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={apolloClient}>
       <Provider store={store}>
-        <App />
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
       </Provider>
     </ApolloProvider>
   </React.StrictMode>,
