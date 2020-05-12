@@ -13,6 +13,7 @@ import store from './store';
 import apolloClient from './ApolloClient';
 import './locales/i18n';
 import theme from './theme';
+import './styles/tailwind.generated.css';
 
 import App from './App';
 
