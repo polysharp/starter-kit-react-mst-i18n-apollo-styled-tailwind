@@ -5,6 +5,6 @@ const RootStore = types.model({
   todos: types.optional(types.array(Todo), []),
 });
 
-const store = RootStore.create();
+const store = RootStore.create({ todos: [] });
 
 export default store;
