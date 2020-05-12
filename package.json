@@ -12,12 +12,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "i18next": "^19.4.4",
+    "i18next-browser-languagedetector": "^4.1.1",
     "mobx": "^5.15.4",
+    "mobx-devtools-mst": "^0.9.22",
     "mobx-react": "^6.2.2",
     "mobx-state-tree": "^3.16.0",
-    "mobx-devtools-mst": "^0.9.22",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-i18next": "^11.4.0",
     "react-scripts": "3.4.1"
   },
   "devDependencies": {
