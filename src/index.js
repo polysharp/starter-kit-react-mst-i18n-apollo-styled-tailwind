@@ -5,7 +5,10 @@ import { Provider } from 'mobx-react';
 import { onPatch } from 'mobx-state-tree';
 import makeInspectable from 'mobx-devtools-mst';
 
+import { ApolloProvider } from '@apollo/react-hooks';
+
 import store from './store';
+import apolloClient from './ApolloClient';
 import './locales/i18n';
 
 import App from './App';
@@ -18,9 +21,11 @@ makeInspectable(store);
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <ApolloProvider client={apolloClient}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
