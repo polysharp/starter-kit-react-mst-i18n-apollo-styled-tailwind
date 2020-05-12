@@ -9,6 +9,7 @@ import store from './store';
 import App from './App';
 
 onPatch(store, (patch) => {
+  // eslint-disable-next-line no-console
   console.log(patch);
 });
 makeInspectable(store);
