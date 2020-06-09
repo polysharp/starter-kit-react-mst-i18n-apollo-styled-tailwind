@@ -1,36 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from 'mobx-react';
-import { onPatch } from 'mobx-state-tree';
-import makeInspectable from 'mobx-devtools-mst';
-
+import 'mobx-react/batchingForReactDom';
 import { ApolloProvider } from '@apollo/react-hooks';
 
-import { ThemeProvider } from 'styled-components';
+import { StoreContextProvider } from 'store';
+import client from 'gql/client';
+import { ThemeContextProvider, ThemeProvider } from 'theme';
 
-import store from './store';
-import apolloClient from './ApolloClient';
-import './locales/i18n';
-import theme from './theme';
-import './styles/tailwind.generated.css';
+import 'translation/i18n';
+import 'styles/tailwind.generated.css';
 
-import App from './App';
-
-onPatch(store, (patch) => {
-  // eslint-disable-next-line no-console
-  console.log(patch);
-});
-makeInspectable(store);
+import { GlobalStyle } from 'components';
+import Router from './router/Router';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApolloProvider client={apolloClient}>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </Provider>
+    <ApolloProvider client={client}>
+      <StoreContextProvider>
+        <ThemeContextProvider>
+          <ThemeProvider>
+            <GlobalStyle />
+            <Router />
+          </ThemeProvider>
+        </ThemeContextProvider>
+      </StoreContextProvider>
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')

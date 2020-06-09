@@ -1,10 +1,4 @@
-import { types } from 'mobx-state-tree';
-import Todo from './models';
+import { StoreContextProvider } from './components';
+import useStore from './hooks';
 
-const RootStore = types.model({
-  todos: types.optional(types.array(Todo), []),
-});
-
-const store = RootStore.create({ todos: [] });
-
-export default store;
+export { StoreContextProvider, useStore };

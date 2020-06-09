@@ -1,5 +1,5 @@
-const theme = {
-  background: '#FBFBFB',
-};
+import { ThemeContextProvider, ThemeProvider } from './components';
+import useTheme from './hooks';
+import { themeNames, themeWithName } from './utils';
 
-export default theme;
+export { ThemeContextProvider, ThemeProvider, useTheme, themeNames, themeWithName };

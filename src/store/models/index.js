@@ -1,3 +1,3 @@
-import Todo from './Todo';
+import user from './user';
 
-export default Todo;
+export default user;
